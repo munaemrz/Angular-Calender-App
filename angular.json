@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "calender-app-revised:build:production"
+              "buildTarget": "calender-app-revised:build:production"
             },
             "development": {
-              "browserTarget": "calender-app-revised:build:development"
+              "buildTarget": "calender-app-revised:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "calender-app-revised:build"
+            "buildTarget": "calender-app-revised:build"
           }
         },
         "test": {
