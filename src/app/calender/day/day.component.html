@@ -1,0 +1,11 @@
+<div class="day-container">
+  <div class="day-header">{{ dayNumber }}</div>
+  <div class="appointments" cdkDropList (cdkDropListDropped)="drop($event)">
+    <app-appointment
+      *ngFor="let appointment of appointments"
+      [appointment]="appointment"
+      (appointmentUpdated)="updateAppointment($event)"
+      (deleteAppointment)="deleteAppointment($event)"
+    ></app-appointment>
+  </div>
+</div>

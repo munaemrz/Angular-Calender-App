@@ -1,0 +1,50 @@
+<div class="calendar-container">
+  <div class="calendar-header">
+    <h1>Calendar</h1>
+    <div class="date-picker">
+      <input
+        type="date"
+        [value]="currentDate | date : 'yyyy-MM-dd'"
+        (change)="onDateChange($event)"
+      />
+      <button (click)="openAppointmentForm()">Add Appointment</button>
+    </div>
+  </div>
+  <div class="calendar-body">
+    <ng-container *ngFor="let day of getDaysArray(); let i = index">
+      <ng-container *ngIf="day !== null; else emptyDay">
+        <div
+          class="day"
+          [class.selected]="day === selectedDay"
+          (click)="selectDay(day)"
+          cdkDropList
+          [cdkDropListData]="getAppointmentsForDay(day)"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <span>{{ day }}</span>
+          <div>
+            <ul>
+              <li
+                *ngFor="let appointment of getAppointmentsForDay(day)"
+                cdkDrag
+                [cdkDragData]="appointment"
+              >
+                {{ appointment.title }} ({{ appointment.startTime }} -
+                {{ appointment.endTime }})
+                <button (click)="deleteAppointment(appointment)">Delete</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </ng-container>
+      <ng-template #emptyDay>
+        <div class="day"></div>
+      </ng-template>
+    </ng-container>
+  </div>
+  <app-appointment-form
+    *ngIf="showAppointmentForm"
+    (appointmentCreated)="createAppointment($event)"
+    (closeForm)="closeForm()"
+  ></app-appointment-form>
+</div>

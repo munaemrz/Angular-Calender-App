@@ -1,0 +1,12 @@
+<div class="appointment">
+  <div class="appointment-details">
+    <h3>{{ appointment.title }}</h3>
+    <p>
+      {{ appointment.startTime | date : "shortTime" }} -
+      {{ appointment.endTime | date : "shortTime" }}
+    </p>
+    <p>{{ appointment.description }}</p>
+  </div>
+  <button mat-button (click)="onUpdate()">Update</button>
+  <button mat-button (click)="onDelete()">Delete</button>
+</div>

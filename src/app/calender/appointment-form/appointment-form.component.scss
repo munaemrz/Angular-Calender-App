@@ -1,0 +1,49 @@
+.appointment-form {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Ensure the form appears above other elements */
+}
+
+.appointment-form h2 {
+  margin-top: 0;
+}
+
+.appointment-form label {
+  display: block;
+  margin-top: 10px;
+}
+
+.appointment-form input[type="text"],
+.appointment-form input[type="date"],
+.appointment-form input[type="time"] {
+  width: calc(100% - 10px);
+  padding: 5px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.appointment-form button {
+  margin-top: 15px;
+  padding: 8px 16px;
+  font-size: 16px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.appointment-form button:hover {
+  background-color: #0056b3;
+}
