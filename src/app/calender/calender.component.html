@@ -10,14 +10,15 @@
       <button (click)="openAppointmentForm()">Add Appointment</button>
     </div>
   </div>
-  <div class="calendar-body">
+  <div class="calendar-body" cdkDropListGroup>
     <ng-container *ngFor="let day of getDaysArray(); let i = index">
       <ng-container *ngIf="day !== null; else emptyDay">
         <div
           class="day"
-          [class.selected]="day === selectedDay"
+          [class.selected]="day === selectedDay?.getDate()"
           (click)="selectDay(day)"
           cdkDropList
+          id="day-{{ day }}"
           [cdkDropListData]="getAppointmentsForDay(day)"
           (cdkDropListDropped)="drop($event)"
         >

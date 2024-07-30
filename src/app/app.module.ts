@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CalendarComponent } from './calender/calender.component';
-import { AppointmentComponent } from './calender/appointment/appointment.component';
+import { CalendarModule } from './calender/calender.module';
 
 @NgModule({
-  declarations: [AppComponent, CalendarComponent, AppointmentComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule, CalendarModule],
   providers: [],
   bootstrap: [AppComponent],
 })

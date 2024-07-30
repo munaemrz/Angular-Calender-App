@@ -1,22 +1,20 @@
-<div class="appointment-form">
-  <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
-    <label>
-      Title:
-      <input formControlName="title" />
-    </label>
-    <label>
-      Date:
-      <input type="date" formControlName="date" />
-    </label>
-    <label>
-      Start Time:
-      <input type="time" formControlName="startTime" />
-    </label>
-    <label>
-      End Time:
-      <input type="time" formControlName="endTime" />
-    </label>
-    <button type="submit">Create</button>
-    <button type="button" (click)="onClose()">Cancel</button>
-  </form>
-</div>
+<form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+  <label>
+    Title:
+    <input formControlName="title" />
+  </label>
+  <label>
+    Date:
+    <input formControlName="date" type="date" />
+  </label>
+  <label>
+    Start Time:
+    <input formControlName="startTime" type="time" />
+  </label>
+  <label>
+    End Time:
+    <input formControlName="endTime" type="time" />
+  </label>
+  <button type="submit" [disabled]="appointmentForm.invalid">Save</button>
+  <button type="button" (click)="close()">Cancel</button>
+</form>
